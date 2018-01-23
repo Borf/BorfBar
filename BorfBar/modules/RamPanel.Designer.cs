@@ -1,6 +1,6 @@
 ﻿namespace BorfBar.modules
 {
-    partial class CpuPanel
+    partial class RamPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CPU = new System.Windows.Forms.Label();
+            this.RAM = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // CPU
+            // RAM
             // 
-            this.CPU.AutoSize = true;
-            this.CPU.ForeColor = System.Drawing.Color.White;
-            this.CPU.Location = new System.Drawing.Point(48, 2);
-            this.CPU.Name = "CPU";
-            this.CPU.Size = new System.Drawing.Size(24, 13);
-            this.CPU.TabIndex = 0;
-            this.CPU.Text = "-- %";
-            this.CPU.MouseHover += new System.EventHandler(this.CPU_MouseHover);
+            this.RAM.AutoSize = true;
+            this.RAM.ForeColor = System.Drawing.Color.White;
+            this.RAM.Location = new System.Drawing.Point(48, 2);
+            this.RAM.Name = "RAM";
+            this.RAM.Size = new System.Drawing.Size(24, 13);
+            this.RAM.TabIndex = 0;
+            this.RAM.Text = "-- %";
+            this.RAM.MouseHover += new System.EventHandler(this.RAM_MouseHover);
             // 
             // timer1
             // 
@@ -60,7 +60,7 @@
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(39, 15);
             this.title.TabIndex = 1;
-            this.title.Text = "CPU:";
+            this.title.Text = "RAM:";
             // 
             // CpuPanel
             // 
@@ -70,7 +70,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.title);
-            this.Controls.Add(this.CPU);
+            this.Controls.Add(this.RAM);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "CpuPanel";
             this.Size = new System.Drawing.Size(75, 15);
@@ -81,7 +81,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label CPU;
+        private System.Windows.Forms.Label RAM;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label title;
     }

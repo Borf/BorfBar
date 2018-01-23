@@ -54,7 +54,6 @@ namespace BorfBar
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -86,6 +85,7 @@ namespace BorfBar
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(2554, 12);
             this.ContextMenuStrip = this.rightClickMenu;
             this.ControlBox = false;
@@ -106,6 +106,7 @@ namespace BorfBar
 		[STAThread]
 		static void Main() 
 		{
+            Settings.load();
 			Application.Run(new frmMain());
 		}
 

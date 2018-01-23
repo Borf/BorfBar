@@ -12,20 +12,20 @@ using System.Drawing.Drawing2D;
 
 namespace BorfBar.modules
 {
-    public partial class CpuPanel : UserControl
+    public partial class RamPanel : UserControl
     {
-        PerformanceCounter cpuCounter = null;
+        PerformanceCounter RamCounter = null;
         private CustomToolTip tip;
         Graph graph;
 
         List<float> history = new List<float>();
-        public CpuPanel(Cpu cpu)
+        public RamPanel(Ram ram)
         {
             InitializeComponent();
             this.tip = new CustomToolTip(this);
-            this.tip.SetToolTip(this.CPU, "this is a test");
+            this.tip.SetToolTip(this.RAM, "this is a test");
 
-            if (cpu.showGraph)
+            if (ram.showGraph)
             {
                 graph = new Graph();
                 graph.Size = new Size(50, 16);
@@ -35,7 +35,7 @@ namespace BorfBar.modules
             }
 
             var bw = new BackgroundWorker();
-            bw.DoWork += (s, e) => cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            bw.DoWork += (s, e) => RamCounter = new PerformanceCounter("Memory", "Available MBytes", String.Empty);
             bw.RunWorkerCompleted += (s, e) => timer1.Start();
             bw.RunWorkerAsync();
 
@@ -43,27 +43,27 @@ namespace BorfBar.modules
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            float value = cpuCounter.NextValue();
+            float value = 100 - RamCounter.NextValue() / (.64f * 1024.0f);
             history.Add(value);
             if (history.Count > 100)
-                history.RemoveRange(0, history.Count-100);
-            CPU.Text = Math.Round(value) + "%";
-            this.tip.SetToolTip(this.CPU, "this is a test");
-            if(graph != null)
+                history.RemoveRange(0, history.Count - 100);
+            RAM.Text = Math.Round(value) + "%";
+            this.tip.SetToolTip(this.RAM, "this is a test");
+            if (graph != null)
                 graph.Invalidate();
-            
+
         }
 
-        private void CPU_MouseHover(object sender, EventArgs e)
+        private void RAM_MouseHover(object sender, EventArgs e)
         {
         }
 
 
         class CustomToolTip : ToolTip
         {
-            private CpuPanel panel;
+            private RamPanel panel;
 
-            public CustomToolTip(CpuPanel panel)
+            public CustomToolTip(RamPanel panel)
             {
                 this.panel = panel;
                 this.OwnerDraw = true;
@@ -96,8 +96,8 @@ namespace BorfBar.modules
                     e.Bounds.Width - 1, e.Bounds.Height - 1));
 
 
-                for(int i = 0; i < 100; i+=25)
-                    g.DrawLine(new Pen(Settings.borderColor, 1), 0,i,200,i);
+                for (int i = 0; i < 100; i += 25)
+                    g.DrawLine(new Pen(Settings.borderColor, 1), 0, i, 200, i);
 
 
                 for (int i = 1; i < panel.history.Count; i++)
@@ -105,7 +105,7 @@ namespace BorfBar.modules
                     g.DrawLine(new Pen(Color.White, 1), mapX(i - 1), mapY(panel.history[i - 1]), mapX(i), mapY(panel.history[i]));
                 }
 
-                
+
             }
         }
     }

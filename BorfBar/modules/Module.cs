@@ -10,7 +10,7 @@ namespace BorfBar.modules
 {
     interface Module
     {
-        UserControl Preferences();
+        UserControl Preferences(frmMain main);
         void BuildPanel(ControlCollection controls);
 
 

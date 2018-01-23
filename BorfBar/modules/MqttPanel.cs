@@ -19,7 +19,7 @@ namespace BorfBar.modules
         Dictionary<String, Label> labels = new Dictionary<string, Label>();
 
 
-        public MqttPanel()
+        public MqttPanel(Mqtt mqtt)
         {
             InitializeComponent();
 
@@ -31,6 +31,7 @@ namespace BorfBar.modules
                 Label label = new Label();
                 label.Text = topic;
                 label.AutoSize = true;
+                label.ForeColor = Color.White;
                 this.flowLayoutPanel1.Controls.Add(label);
 
                 labels[topic] = label;
@@ -39,7 +40,6 @@ namespace BorfBar.modules
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         /// <summary> 
@@ -52,7 +52,8 @@ namespace BorfBar.modules
             {
                 components.Dispose();
             }
-            client.Disconnect();
+            if(client != null && client.IsConnected)
+                client.Disconnect();
             base.Dispose(disposing);
         }
 

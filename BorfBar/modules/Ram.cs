@@ -8,9 +8,9 @@ using static System.Windows.Forms.Control;
 
 namespace BorfBar.modules
 {
-    public class Cpu : Module
+    public class Ram : Module
     {
-        public static string Name = "CPU";
+        public static string Name = "RAM";
 
 
         public Boolean showGraph = true;
@@ -18,12 +18,12 @@ namespace BorfBar.modules
 
         public void BuildPanel(ControlCollection controls)
         {
-            controls.Add(new CpuPanel(this));
+            controls.Add(new RamPanel(this));
         }
 
         public UserControl Preferences(frmMain main)
         {
-            return new CpuPreferences(this, main);
+            return new RamPreferences(this, main);
         }
     }
 }

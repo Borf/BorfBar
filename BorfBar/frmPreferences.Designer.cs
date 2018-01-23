@@ -58,6 +58,7 @@
             // 
             // lstAllModules
             // 
+            this.lstAllModules.AllowDrop = true;
             this.lstAllModules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lstAllModules.FormattingEnabled = true;
@@ -65,6 +66,8 @@
             this.lstAllModules.Name = "lstAllModules";
             this.lstAllModules.Size = new System.Drawing.Size(255, 95);
             this.lstAllModules.TabIndex = 3;
+            this.lstAllModules.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstAllModules_DragDrop);
+            this.lstAllModules.DragOver += new System.Windows.Forms.DragEventHandler(this.lstAllModules_DragOver);
             this.lstAllModules.DoubleClick += new System.EventHandler(this.lstAllModules_DoubleClick);
             // 
             // frmPreferences

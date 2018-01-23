@@ -28,33 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lstComponents = new System.Windows.Forms.ListBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // label1
+            // lstComponents
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 122);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lstComponents.FormattingEnabled = true;
+            this.lstComponents.Items.AddRange(new object[] {
+            "NumberValue",
+            "TextValue",
+            "Seperator",
+            "Button",
+            "ValueButton",
+            "Slider",
+            "Spinner",
+            "Combobox"});
+            this.lstComponents.Location = new System.Drawing.Point(3, 3);
+            this.lstComponents.Name = "lstComponents";
+            this.lstComponents.Size = new System.Drawing.Size(176, 121);
+            this.lstComponents.TabIndex = 0;
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(3, 130);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(176, 365);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // MqttPreferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Controls.Add(this.label1);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lstComponents);
             this.Name = "MqttPreferences";
-            this.Size = new System.Drawing.Size(646, 252);
+            this.Size = new System.Drawing.Size(788, 500);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lstComponents;
+        private System.Windows.Forms.ListView listView1;
     }
 }

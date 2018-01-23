@@ -12,9 +12,12 @@ namespace BorfBar.modules
 {
     public partial class MqttPreferences : UserControl
     {
-        public MqttPreferences()
+        public MqttPreferences() { InitializeComponent();        }
+
+        public MqttPreferences(Mqtt mqtt, frmMain main)
         {
             InitializeComponent();
+
         }
     }
 }

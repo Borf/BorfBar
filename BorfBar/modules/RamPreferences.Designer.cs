@@ -1,6 +1,6 @@
 ﻿namespace BorfBar.modules
 {
-    partial class CpuPreferences
+    partial class RamPreferences
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,21 +34,21 @@
             // showGraph
             // 
             this.showGraph.AutoSize = true;
-            this.showGraph.Location = new System.Drawing.Point(3, 3);
+            this.showGraph.Location = new System.Drawing.Point(13, 25);
             this.showGraph.Name = "showGraph";
             this.showGraph.Size = new System.Drawing.Size(55, 17);
-            this.showGraph.TabIndex = 0;
+            this.showGraph.TabIndex = 1;
             this.showGraph.Text = "Graph";
             this.showGraph.UseVisualStyleBackColor = true;
             // 
-            // CpuPreferences
+            // RamPreferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.showGraph);
-            this.Name = "CpuPreferences";
-            this.Size = new System.Drawing.Size(567, 159);
+            this.Name = "RamPreferences";
+            this.Size = new System.Drawing.Size(148, 148);
             this.ResumeLayout(false);
             this.PerformLayout();
 

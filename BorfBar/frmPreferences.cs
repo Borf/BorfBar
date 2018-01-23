@@ -27,6 +27,11 @@ namespace BorfBar
 
             foreach (var c in Util.getAllModules())
                 lstAllModules.Items.Add(c.GetField("Name").GetValue(null));
+
+            foreach( var c in Settings.Modules)
+            {
+                lstModules.Items.Add(c.GetType().GetField("Name").GetValue(null));
+            }
         }
 
         private void lstAllModules_DoubleClick(object sender, EventArgs ee)
@@ -41,6 +46,7 @@ namespace BorfBar
 
             Settings.Modules.Add(Activator.CreateInstance(newModule) as modules.Module);
             main.buildInterface();
+            Settings.save();
         }
 
         private void lstModules_MouseDown(object sender, MouseEventArgs e)
@@ -54,7 +60,7 @@ namespace BorfBar
 
             if (lstModules.SelectedIndex < 0)
                 return;
-            modulePreferences = Settings.Modules[this.lstModules.SelectedIndex].Preferences();
+            modulePreferences = Settings.Modules[this.lstModules.SelectedIndex].Preferences(main);
 
             modulePreferences.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -90,6 +96,23 @@ namespace BorfBar
             var old = Settings.Modules[oldIndex];
             Settings.Modules.Remove(old);
             Settings.Modules.Insert(index, old);
+            main.buildInterface();
+            Settings.save();
+        }
+
+        private void lstAllModules_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void lstAllModules_DragDrop(object sender, DragEventArgs e)
+        {
+            if (lstModules.SelectedIndex < 0)
+                return;
+            Settings.Modules.RemoveAt(lstModules.SelectedIndex);
+            lstModules.Items.RemoveAt(lstModules.SelectedIndex);
+            main.buildInterface();
+            Settings.save();
         }
     }
 }
