@@ -144,6 +144,8 @@
     </Compile>
     <Compile Include="modules\Module.cs" />
     <Compile Include="modules\Mqtt.cs" />
+    <Compile Include="modules\mqtt\MqttItem.cs" />
+    <Compile Include="modules\mqtt\MqttNumber.cs" />
     <Compile Include="modules\MqttPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +158,8 @@
     <Compile Include="modules\MqttPreferences.Designer.cs">
       <DependentUpon>MqttPreferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="modules\mqtt\MqttSeperator.cs" />
+    <Compile Include="modules\mqtt\MqttText.cs" />
     <Compile Include="modules\Ram.cs" />
     <Compile Include="modules\RamPanel.cs">
       <SubType>UserControl</SubType>
@@ -220,6 +224,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />

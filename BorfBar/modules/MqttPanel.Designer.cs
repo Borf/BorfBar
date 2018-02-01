@@ -17,53 +17,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.title = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SuspendLayout();
-            // 
-            // title
-            // 
-            this.title.AutoSize = true;
-            this.title.BackColor = System.Drawing.Color.Transparent;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.ForeColor = System.Drawing.Color.White;
-            this.title.Location = new System.Drawing.Point(0, 0);
-            this.title.Margin = new System.Windows.Forms.Padding(0);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(49, 15);
-            this.title.TabIndex = 2;
-            this.title.Text = "MQTT:";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(0, 0);
-            this.flowLayoutPanel1.TabIndex = 3;
-            // 
-            // MqttPanel
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.title);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "MqttPanel";
-            this.Size = new System.Drawing.Size(248, 22);
-            this.Load += new System.EventHandler(this.MqttPanel_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.SuspendLayout();
+			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.AutoSize = true;
+			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(248, 22);
+			this.flowLayoutPanel1.TabIndex = 3;
+			// 
+			// MqttPanel
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
+			this.BackColor = System.Drawing.Color.Transparent;
+			this.Controls.Add(this.flowLayoutPanel1);
+			this.Margin = new System.Windows.Forms.Padding(0);
+			this.Name = "MqttPanel";
+			this.Size = new System.Drawing.Size(248, 22);
+			this.Load += new System.EventHandler(this.MqttPanel_Load);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label title;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -21,12 +21,26 @@ namespace BorfBar.modules
 
         public MqttPanel(Mqtt mqtt)
         {
-            InitializeComponent();
+			if (!this.DesignMode)
+			{
+				client = new MqttClient("192.168.2.201");
+				client.Connect("WindowsClient");
+				client.Publish("desktop/status", Encoding.ASCII.GetBytes("online"));
+			}
+
+
+			InitializeComponent();
 
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
 
-            foreach (var topic in new[] { "onkyo/status/title", "onkyo/status/artist", "onkyo/status/album", "onkyo/playtime", "crypto/coin" })
+
+			foreach(var component in mqtt.items)
+			{
+				component.BuildPanel(this.flowLayoutPanel1.Controls, client);
+			}
+
+            /*foreach (var topic in new[] { "onkyo/status/title", "onkyo/status/artist", "onkyo/status/album", "onkyo/playtime", "crypto/coin" })
             {
                 Label label = new Label();
                 label.Text = topic;
@@ -35,7 +49,7 @@ namespace BorfBar.modules
                 this.flowLayoutPanel1.Controls.Add(label);
 
                 labels[topic] = label;
-            }
+            }*/
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -59,9 +73,6 @@ namespace BorfBar.modules
 
         private void MqttPanel_Load(object sender, EventArgs e)
         {
-            client = new MqttClient("192.168.2.201");
-            client.Connect("WindowsClient");
-            client.Publish("desktop/status", Encoding.ASCII.GetBytes("online"));
 //            client.Subscribe(new string[] { "onkyo/volume", "onkyo/playtime", "onkyo/status/title", "onkyo/status", "onkyo/status/artist", "onkyo/status/album" },
  //                           new byte[] { 0, 0, 0, 0, 0, 0 });
 

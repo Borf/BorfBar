@@ -1,4 +1,5 @@
 ﻿using BorfBar.modules;
+using BorfBar.modules.mqtt;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static BorfBar.modules.Mqtt;
 
 namespace BorfBar
 {
@@ -34,7 +36,22 @@ namespace BorfBar
                 {
                     TypeNameHandling = TypeNameHandling.All
                 });
-            }catch(Exception e)
+
+				if ((Modules[2] as Mqtt).items.Count == 0)
+				{
+					(Modules[2] as Mqtt).items.Add(new MqttNumber()
+					{
+						title = "Ripple:",
+						showTitle = true,
+						topic = "crypto/coin",
+						maxValue = 10,
+						minValue = 0,
+						roundDigits = 3,
+						showGraph = true
+					});
+				}
+			}
+			catch(Exception e)
             {
                 Console.WriteLine(e);
             }
